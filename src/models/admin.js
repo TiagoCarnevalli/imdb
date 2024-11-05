@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 
-class User extends Model {}
+class Admin extends Model {}
 
-User.init({
+Admin.init({
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -24,7 +24,7 @@ User.init({
     },
 }, {
     sequelize,
-    modelName: 'User',
+    modelName: 'Admin',
 });
 
-module.exports = User;
+module.exports = Admin;

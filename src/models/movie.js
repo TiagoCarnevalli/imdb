@@ -1,22 +1,33 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 
-class User extends Model {}
+class Movie extends Model {}
 
-User.init({
+Movie.init({
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
     },
-    username: {
+    title: {
         type: DataTypes.STRING,
-        unique: true,
         allowNull: false,
     },
-    password: {
+    genre: {
         type: DataTypes.STRING,
         allowNull: false,
+    },
+    director: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    actors: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    averageVote: {
+        type: DataTypes.FLOAT,
+        defaultValue: 0,
     },
     isActive: {
         type: DataTypes.BOOLEAN,
@@ -24,7 +35,7 @@ User.init({
     },
 }, {
     sequelize,
-    modelName: 'User',
+    modelName: 'Movie',
 });
 
-module.exports = User;
+module.exports = Movie;
